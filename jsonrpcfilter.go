@@ -9,13 +9,11 @@ import (
 	"net/http"
 )
 
-// Config the plugin configuration.
 type Config struct {
 	Allowlist           []string `json:"allowlist,omitempty"`
 	BatchedRequestLimit int      `json:"batchedRequestLimit,omitempty"`
 }
 
-// CreateConfig creates the default plugin configuration.
 func CreateConfig() *Config {
 	return &Config{
 		Allowlist:           make([]string, 0),
@@ -23,7 +21,6 @@ func CreateConfig() *Config {
 	}
 }
 
-// Demo a Demo plugin.
 type JSONRPCFilter struct {
 	next                http.Handler
 	allowlist           []string
@@ -62,7 +59,6 @@ func (jf *JSONRPCFilter) isBatchRequestBlocked(reqs []JSONRPCRequest) bool {
 	return false
 }
 
-// New created a new Demo plugin.
 func New(ctx context.Context, next http.Handler, config *Config, name string) (http.Handler, error) {
 	if len(config.Allowlist) == 0 {
 		return nil, fmt.Errorf("allowlist cannot be empty")
