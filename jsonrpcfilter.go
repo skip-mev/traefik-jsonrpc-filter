@@ -18,7 +18,8 @@ type Config struct {
 // CreateConfig creates the default plugin configuration.
 func CreateConfig() *Config {
 	return &Config{
-		Allowlist: make([]string, 0),
+		Allowlist:           make([]string, 0),
+		BatchedRequestLimit: 1,
 	}
 }
 
