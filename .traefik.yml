@@ -1,0 +1,11 @@
+displayName: JSON-RPC filter
+type: middleware
+iconPath: .assets/icon.png
+
+import: github.com/skip-mev/traefik-jsonrpc-filter
+summary: 'Block or allow requests based on the JSON-RPC summary'
+
+testData:
+  batchedRequestLimit: 5
+  allowlist:
+    - "test"
